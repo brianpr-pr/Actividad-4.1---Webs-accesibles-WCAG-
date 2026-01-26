@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Ejemplo</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #cccccc;
-            color: #666666;
-            font-size: 14px;
+            background-color: #eeebeb;
+            color: #6a6161;
+            font-size: 1em;
         }
         .hidden {
             display: none;
@@ -15,7 +17,7 @@
         .btn {
             background-color: blue;
             color: white;
-            padding: 10px 20px;
+            padding: 0.5% 1%;
             border: none;
             cursor: pointer;
         }
@@ -23,7 +25,12 @@
             list-style: none;
         }
         .menu li {
-            margin: 10px;
+            margin: 0.5%;
+        }
+
+        .container-alerts{
+            width: 90%;
+            margin: auto;
         }
     </style>
 <script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-evagd-occidental.js"></script><link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies-html.js"></script></head>
@@ -32,13 +39,13 @@
     <p>Este es un ejemplo de una página web con problemas de accesibilidad.</p>
 
     <!-- Imagen sin texto alternativo y decorativa pero relevante -->
-    <img src="example-image.jpg">
+    <img src="example-image.jpg" alt="Imagen decorativa pero relevante">
 
     <!-- Enlace con texto no descriptivo y sin propósito claro -->
     <a href="#">Leer más</a>
 
     <!-- Navegación incorrecta sin estructura semántica adecuada -->
-    <div>
+    <div class="container-alerts">
         <span onclick="alert('Inicio');">Inicio</span>
         <span onclick="alert('Sobre Nosotros');">Sobre Nosotros</span>
         <span onclick="alert('Contacto');">Contacto</span>
@@ -46,17 +53,20 @@
 
     <!-- Formulario sin etiquetas, sin agrupación lógica ni descripciones de errores -->
     <form>
-        <input type="text" name="nombre" placeholder="Nombre">
-        <input type="email" name="correo" placeholder="Correo Electrónico">
-        <input type="password" name="contraseña" placeholder="Contraseña">
+        <label for="nombre">Ingrese su nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+        <label for="email">Ingrese su correo</label>
+        <input type="email" id="correo" name="correo" placeholder="Correo Electrónico">
+        <label for="password">Ingrese su contraseña</label>
+        <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
         <button class="btn">Registrarse</button>
     </form>
 
     <!-- Texto con mal contraste de color y tamaño insuficiente -->
-    <p style="color: #cccccc; font-size: 10px;">Este texto tiene un contraste bajo y es difícil de leer.</p>
+    <p style="color: #6a6161; font-size: 1.4em;">Este texto tiene un contraste bajo y es difícil de leer.</p>
 
     <!-- Elementos interactivos no accesibles para teclado y sin alternativas -->
-    <div onclick="alert('Acción ejecutada');" style="width: 200px; height: 50px; background-color: red; text-align: center; color: white; cursor: pointer;">
+    <div onclick="alert('Acción ejecutada');" style="width: 10%; height: 50px; background-color: red; text-align: center; color: white; cursor: pointer;">
         Haga clic aquí
     </div>
 
