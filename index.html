@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Ejemplo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cccccc;
+            color: #666666;
+            font-size: 14px;
+        }
+        .hidden {
+            display: none;
+        }
+        .btn {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .menu {
+            list-style: none;
+        }
+        .menu li {
+            margin: 10px;
+        }
+    </style>
+<script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-evagd-occidental.js"></script><link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies-html.js"></script></head>
+<body>
+    <h1>Bienvenidos</h1>
+    <p>Este es un ejemplo de una página web con problemas de accesibilidad.</p>
+
+    <!-- Imagen sin texto alternativo y decorativa pero relevante -->
+    <img src="example-image.jpg">
+
+    <!-- Enlace con texto no descriptivo y sin propósito claro -->
+    <a href="#">Leer más</a>
+
+    <!-- Navegación incorrecta sin estructura semántica adecuada -->
+    <div>
+        <span onclick="alert('Inicio');">Inicio</span>
+        <span onclick="alert('Sobre Nosotros');">Sobre Nosotros</span>
+        <span onclick="alert('Contacto');">Contacto</span>
+    </div>
+
+    <!-- Formulario sin etiquetas, sin agrupación lógica ni descripciones de errores -->
+    <form>
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="email" name="correo" placeholder="Correo Electrónico">
+        <input type="password" name="contraseña" placeholder="Contraseña">
+        <button class="btn">Registrarse</button>
+    </form>
+
+    <!-- Texto con mal contraste de color y tamaño insuficiente -->
+    <p style="color: #cccccc; font-size: 10px;">Este texto tiene un contraste bajo y es difícil de leer.</p>
+
+    <!-- Elementos interactivos no accesibles para teclado y sin alternativas -->
+    <div onclick="alert('Acción ejecutada');" style="width: 200px; height: 50px; background-color: red; text-align: center; color: white; cursor: pointer;">
+        Haga clic aquí
+    </div>
+
+    <!-- Contenido animado sin opción de detener o pausar -->
+    <marquee behavior="scroll" direction="left">Este es un texto en movimiento que no se puede pausar.</marquee>
+
+    <!-- Multimedia sin subtítulos ni descripción textual -->
+    <video autoplay>
+        <source src="example-video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Lista visual pero no semántica -->
+    <div class="menu">
+        <div>Elemento 1</div>
+        <div>Elemento 2</div>
+        <div>Elemento 3</div>
+    </div>
+</body>
+</html>
