@@ -54,14 +54,42 @@
     <!-- Formulario sin etiquetas, sin agrupación lógica ni descripciones de errores -->
     <form>
         <label for="nombre">Ingrese su nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-        <label for="email">Ingrese su correo</label>
-        <input type="email" id="correo" name="correo" placeholder="Correo Electrónico">
-        <label for="password">Ingrese su contraseña</label>
-        <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
-        <button class="btn">Registrarse</button>
-    </form>
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Nombre"
+            required
+            minlength="3"
+            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="El nombre debe tener al menos 3 letras y solo puede contener letras y espacios."
+        >
 
+        <label for="correo">Ingrese su correo</label>
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="Correo electrónico"
+            required
+            title="Ingrese un correo electrónico válido. Ejemplo: usuario@correo.com"
+        >
+
+        <label for="contraseña">Ingrese su contraseña</label>
+        <input
+            type="password"
+            id="contraseña"
+            name="contraseña"
+            placeholder="Contraseña"
+            required
+            minlength="8"
+            pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}"
+            title="La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número."
+        >
+
+        <button type="submit" class="btn">Registrarse</button>
+    </form>
+    
     <!-- Texto con mal contraste de color y tamaño insuficiente -->
     <p style="color: #6a6161; font-size: 1.4em;">Este texto tiene un contraste bajo y es difícil de leer.</p>
 
@@ -76,6 +104,14 @@
     <!-- Multimedia sin subtítulos ni descripción textual -->
     <video autoplay>
         <source src="example-video.mp4" type="video/mp4">
+        <track
+        kind="subtitles"
+        src="example.vtt"
+        srclang="es"
+        label="subtítulos en español"
+        default>
+            
+        </track>
     </video>
 
     <!-- Lista visual pero no semántica -->
