@@ -3,122 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Ejemplo</title>
+    <title>Página de Ejemplo Accesible</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #eeebeb;
-            color: #6a6161;
-            font-size: 1em;
+            background-color: #f5f5f5;
+            color: #1a1a1a; /* Contraste suficiente */
+            font-size: 1rem;
+            line-height: 1.5;
         }
-        .hidden {
-            display: none;
+
+        a {
+            color: #0047ab;
         }
+
+        a:focus,
+        button:focus,
+        input:focus {
+            outline: 3px solid #ffbf47;
+            outline-offset: 2px;
+        }
+
         .btn {
-            background-color: blue;
-            color: white;
-            padding: 0.5% 1%;
+            background-color: #0047ab;
+            color: #ffffff;
+            padding: 0.5em 1em;
             border: none;
             cursor: pointer;
-        }
-        .menu {
-            list-style: none;
-        }
-        .menu li {
-            margin: 0.5%;
+            font-size: 1rem;
         }
 
-        .container-alerts{
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        .container {
             width: 90%;
+            max-width: 800px;
             margin: auto;
         }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
-<script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-evagd-occidental.js"></script><link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/cookies/cookies-html.js"></script></head>
+</head>
+
 <body>
-    <h1>Bienvenidos</h1>
-    <p>Este es un ejemplo de una página web con problemas de accesibilidad.</p>
+    <a href="#contenido" class="skip-link">Saltar al contenido principal</a>
 
-    <!-- Imagen sin texto alternativo y decorativa pero relevante -->
-    <img src="example-image.jpg" alt="Imagen decorativa pero relevante">
+    <header class="container">
+        <h1>Bienvenidos</h1>
+        <p>Este es un ejemplo de una página web accesible según las WCAG.</p>
+        <!-- Navegación incorrecta sin estructura semántica adecuada -->
+        <nav class="container" aria-label="Navegación principal">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre">Sobre nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Enlace con texto no descriptivo y sin propósito claro -->
-    <a href="#">Leer más</a>
+    <main id="contenido" class="container">
+        <!-- Imagen sin texto alternativo y decorativa pero relevante -->
+        <img src="example-image.jpg" alt="Persona utilizando un ordenador portátil para navegar por una página web accesible">
 
-    <!-- Navegación incorrecta sin estructura semántica adecuada -->
-    <div class="container-alerts">
-        <span onclick="alert('Inicio');">Inicio</span>
-        <span onclick="alert('Sobre Nosotros');">Sobre Nosotros</span>
-        <span onclick="alert('Contacto');">Contacto</span>
-    </div>
+        <!-- Enlace con texto no descriptivo y sin propósito claro -->
+        <p>
+            <a href="https://www.w3.org/WAI/WCAG22/quickref/">Leer más sobre accesibilidad web</a>
+        </p>
 
-    <!-- Formulario sin etiquetas, sin agrupación lógica ni descripciones de errores -->
-    <form>
-        <label for="nombre">Ingrese su nombre</label>
-        <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            placeholder="Nombre"
-            required
-            minlength="3"
-            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
-            title="El nombre debe tener al menos 3 letras y solo puede contener letras y espacios."
-        >
+        <!-- Formulario sin etiquetas, sin agrupación lógica ni descripciones de errores -->
+        <section aria-labelledby="registro">
+            <h2 id="registro">Formulario de registro</h2>
 
-        <label for="correo">Ingrese su correo</label>
-        <input
-            type="email"
-            id="correo"
-            name="correo"
-            placeholder="Correo electrónico"
-            required
-            title="Ingrese un correo electrónico válido. Ejemplo: usuario@correo.com"
-        >
+            <form>
+                <div>
+                    <label for="nombre">Nombre</label><br>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        required
+                        minlength="3"
+                        aria-describedby="ayuda-nombre"
+                    >
+                    <small id="ayuda-nombre">
+                        Introduzca al menos 3 letras. Solo letras y espacios.
+                    </small>
+                </div>
 
-        <label for="contraseña">Ingrese su contraseña</label>
-        <input
-            type="password"
-            id="contraseña"
-            name="contraseña"
-            placeholder="Contraseña"
-            required
-            minlength="8"
-            pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}"
-            title="La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número."
-        >
+                <div>
+                    <label for="correo">Correo electrónico</label><br>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        required
+                        aria-describedby="ayuda-correo"
+                    >
+                    <small id="ayuda-correo">
+                        Ejemplo: usuario@correo.com
+                    </small>
+                </div>
 
-        <button type="submit" class="btn">Registrarse</button>
-    </form>
-    
-    <!-- Texto con mal contraste de color y tamaño insuficiente -->
-    <p style="color: #6a6161; font-size: 1.4em;">Este texto tiene un contraste bajo y es difícil de leer.</p>
+                <div>
+                    <label for="contrasena">Contraseña</label><br>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        name="contrasena"
+                        required
+                        minlength="8"
+                        aria-describedby="ayuda-contrasena"
+                    >
+                    <small id="ayuda-contrasena">
+                        Mínimo 8 caracteres, una mayúscula, una minúscula y un número.
+                    </small>
+                </div>
 
-    <!-- Elementos interactivos no accesibles para teclado y sin alternativas -->
-    <div onclick="alert('Acción ejecutada');" style="width: 10%; height: 50px; background-color: red; text-align: center; color: white; cursor: pointer;">
-        Haga clic aquí
-    </div>
+                <button type="submit" class="btn">Registrarse</button>
+            </form>
+        </section>
 
-    <!-- Contenido animado sin opción de detener o pausar -->
-    <marquee behavior="scroll" direction="left">Este es un texto en movimiento que no se puede pausar.</marquee>
+        <!-- Texto con mal contraste de color y tamaño insuficiente -->
+        <p>
+            Este texto tiene un contraste bajo y es difícil de leer.
+        </p>
 
-    <!-- Multimedia sin subtítulos ni descripción textual -->
-    <video autoplay>
-        <source src="example-video.mp4" type="video/mp4">
-        <track
-        kind="subtitles"
-        src="example.vtt"
-        srclang="es"
-        label="subtítulos en español"
-        default>
-            
-        </track>
-    </video>
+        <!-- Elementos interactivos no accesibles para teclado y sin alternativas -->
+        <button class="btn" onclick="alert('Acción ejecutada')">
+            Haga clic aquí
+        </button>
 
-    <!-- Lista visual pero no semántica -->
-    <div class="menu">
-        <div>Elemento 1</div>
-        <div>Elemento 2</div>
-        <div>Elemento 3</div>
-    </div>
+        <!-- Contenido animado sin opción de detener o pausar -->
+        <p>
+            Este es un texto en movimiento que no se puede pausar.
+        </p>
+
+        <!-- Multimedia sin subtítulos ni descripción textual -->
+        <section>
+            <h2>Video informativo</h2>
+            <video controls>
+                <source src="example-video.mp4" type="video/mp4">
+                <track
+                    kind="subtitles"
+                    src="example.vtt"
+                    srclang="es"
+                    label="Subtítulos en español"
+                    default>
+                </track>
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </section>
+
+        <!-- Lista visual pero no semántica -->
+        <section>
+            <h2>Lista de elementos</h2>
+            <ul>
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2026 - Ejemplo de web accesible</p>
+    </footer>
 </body>
 </html>
